@@ -1,0 +1,137 @@
+.button {
+  z-index: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 7.4rem;
+  padding: 0 3rem;
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  opacity: 0;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+  }
+
+  svg {
+    color: var(--white);
+  }
+
+  &:hover { color: var(--black); }
+  &:hover::before { opacity: 1; }
+
+  &:hover &__border svg {
+    transform: translateX(-.5rem);
+  }
+
+  &__dot {
+    position: absolute;
+    top: calc(50% - .5em);
+    left: calc(50% - .5em);
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+  }
+
+  &__text {
+    pointer-events: none; // we want click root to be parent a, for js
+    position: relative;
+    white-space: nowrap;
+
+    &-inner {
+      line-height: 2;
+    }
+
+    &-before,
+    &-after {
+      position: absolute;
+      width: 50%;
+      height: 1em;
+      top: .5em;
+      background: currentColor;
+    }
+
+    &-before {
+      left: 0;
+      transform-origin: right center;
+    }
+
+    &-after {
+      right: 0;
+      transform-origin: left center;
+    }
+  }
+
+  &__border {
+    position: absolute;
+    transform-origin: center center;
+
+    svg {
+      height: 100%;
+      transition: transform .2s ease-in-out;
+    }
+
+    &.-top {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: .1rem;
+      opacity: 0.25;
+      background-color: currentColor;
+    }
+
+    &.-bottom {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .1rem;
+      opacity: 0.15;
+      background-color: currentColor;
+    }
+
+    &.-left {
+      top: 0;
+      left: 0;
+      width: .3rem;
+      height: 100%;
+    }
+
+    &.-right {
+      top: 0;
+      right: 0;
+      width: .3rem;
+      transform: rotate(180deg);
+      height: 100%;
+    }
+  }
+
+  .no-js &,
+  .tab-nav & {
+    opacity: 1;
+
+    &__dot,
+    &__text-before,
+    &__text-after {
+      opacity: 0;
+    }
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    height: 5rem;
+    font-size: 1.2rem;
+    min-width: 25rem;
+  }
+}

@@ -1,0 +1,25 @@
+.icon-box {
+  position: relative;
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  &__bg {
+    width: 7.6rem;
+    aspect-ratio: 1/1;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    svg {
+      padding: 20%;
+      width: 100%;
+    }
+  }
+}

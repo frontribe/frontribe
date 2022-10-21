@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/main.astro'
+import HeroSingle from '../components/HeroSingle/HeroSingle.astro'
+import BlogSingle from '../components/BlogSingle/BlogSingle.astro'
+import BlogSection from '../components/BlogSection/BlogSection.astro'
+import Footer from '../components/Footer/Footer.astro'
+---
+
+<MainLayout>
+  <HeroSingle />
+  <BlogSingle />
+
+  <BlogSection
+    title="Featured articles"
+    items={3}
+  />
+
+  <Footer>
+    <span slot="title">JOIN AS DEVELOPER</span>
+    <p slot="copy" style="max-width: 48rem;">
+      Take your career to the next level
+      by joining our esteemed tribe and connecting
+      with the career position of your dreams.
+    </p>
+  </Footer>
+</MainLayout>

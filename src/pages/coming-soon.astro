@@ -1,0 +1,38 @@
+---
+import resetCSS from '../styles/reset.scss?inline'
+import globalCSS from '../styles/global.scss?inline'
+import Background from '../elements/Background/Background.astro'
+import Dust from '../elements/Dust/Dust.astro'
+import ModelPunk from '../components/ModelPunk/ModelPunk.astro'
+import ComingSoon from '../components/ComingSoon/ComingSoon.astro'
+
+const extraCSS = `
+  .model-zoomer { display: none; }
+`
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Frontribe | Frontend Career Management</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <style is:inline set:html={resetCSS + globalCSS + extraCSS}></style>
+</head>
+<body>
+
+  <Background />
+  <ModelPunk />
+  <Dust />
+  <ComingSoon />
+
+</body>
+</html>

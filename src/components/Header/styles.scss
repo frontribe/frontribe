@@ -1,0 +1,64 @@
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  transform: translateX(calc(var(--scrollbar-width) * -.5)) translateZ(0);
+  color: var(--white);
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  line-height: 3.2rem;
+  pointer-events: none;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    height: 12.8rem;
+    position: relative;
+
+
+    > * {
+      padding: 2rem;
+      pointer-events: all;
+    }
+  }
+
+  &__logo {
+    width: 8.8rem;
+    height: 8.8rem;
+    margin-left: -2rem;
+  }
+
+  &__link {
+    margin-left: 5.6rem;
+  }
+
+  &__burger {
+    margin-left: auto;
+    width: 3.2rem;
+    margin-right: -2rem;
+
+    > * { pointer-events: none; }
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    &__logo {
+      width: 7.6rem;
+      height: 7.6rem;
+      margin-left: -2rem;
+    }
+
+    &__link {
+      display: none;
+    }
+
+    &__burger {
+      width: 2.6rem;
+    }
+  }
+}

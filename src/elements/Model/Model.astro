@@ -1,0 +1,54 @@
+---
+import styles from './styles.scss?inline'
+import ModelRevealer from '../ModelRevealer/ModelRevealer.astro'
+---
+
+<style data-uniq="model" is:inline set:html={styles}></style>
+
+<div class="model-fallback">
+  <noscript>
+    <img
+      class={Astro.props.planet ? 'planet' : ''}
+      src={Astro.props.fallback[0]}
+      srcset={`${Astro.props.fallback[0]} 3000w, ${Astro.props.fallback[1]} 800w`}
+      sizes="(max-aspect-ratio: 1/1) 800px, 3000px"
+      loading="lazy"
+      decoding="async"
+      alt=""
+    >
+  </noscript>
+</div>
+
+<div class="model-zoomer" flyout-zoom=".85">
+  <model-viewer
+    id="model"
+    class={Astro.props.planet ? 'planet' : ''}
+    data-name="model"
+    src={Astro.props.src}
+    environment-image={Astro.props.light}
+    min-camera-orbit={Astro.props['min-camera-orbit']}
+    interaction-prompt="none"
+    interpolation-decay="0"
+    shadow-intensity="0"
+    tabindex="-1"
+  ><div></div>
+  </model-viewer>
+</div>
+
+<ModelRevealer />
+
+<script type="module" hoist>
+  import './devUtils.js'
+  import loader from '../../elements/ModelLoader/scripts.js'
+
+  if (!window.enableAnims) {
+    const fallback = document.querySelector('.model-fallback')
+    const img = (new DOMParser())
+      .parseFromString(fallback.textContent, 'text/html')
+      .querySelector('img')
+    fallback.appendChild(img)
+  }
+
+  await loader()
+  document.getElementById('model').style.opacity = 1
+</script>

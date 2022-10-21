@@ -1,0 +1,37 @@
+---
+import TextAnim from '../../elements/TextAnim/TextAnim.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="pricing" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="pricing">
+  <section class="pricing stage" flyout-zoom=".75">
+    <div class="pricing__container container">
+      <div class="pricing__wrapper">
+        <div class="pricing__border -left"></div>
+        <div class="pricing__border -right"></div>
+        <div class="pricing__price">
+          <div class="pricing__price__bg"></div>
+          <div class="pricing__price__txt">Null</div>
+        </div>
+        <div class="pricing__title">Pricing</div>
+        <div class="pricing__desc">
+          Want to know how it is possible?
+          <a tabindex="0" class="pricing__link text-anim-hover" href="/for-developers#pricing">
+            <TextAnim text="Read more here"/>
+            <div class="pricing__link__line"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('pricing', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => ({create() {}, destroy() {}}),
+  })
+</script>

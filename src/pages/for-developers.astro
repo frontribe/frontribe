@@ -1,0 +1,70 @@
+---
+import MainLayout from '../layouts/main.astro'
+
+import ModelMoon from '../components/ModelMoon/ModelMoon.astro'
+import HeroSub from '../components/HeroSub/HeroSub.astro'
+import WhatWeDo from '../components/WhatWeDo/WhatWeDo.astro'
+import HowToJoin from '../components/HowToJoin/HowToJoin.astro'
+import Remote from '../components/Remote/Remote.astro'
+import Pricing2 from '../components/Pricing2/Pricing2.astro'
+import Footer from '../components/Footer/Footer.astro'
+---
+
+<MainLayout
+  title="Frontribe | For Developers"
+  description="Take Your Frontend Career To The Moon. Use Our Unique Career Management Services"
+  slug="/for-developers"
+>
+  <ModelMoon />
+
+  <HeroSub snap={true}>
+    <p slot="title">
+      Take your <strong>frontend</strong> career to the Moon <br>
+      <span class="hidden-mobile">Use our unique <strong>career management service</strong></span>
+    </p>
+    <p slot="copy">Frontribe is a special hub for talented Frontenders that would like to get business hassle off their shoulders. </p>
+  </HeroSub>
+
+  <WhatWeDo class="planet" items={[
+    {
+      title: 'Finance',
+      desc: 'We\'ve built recognition and trust over our own engineering careers and have a good position on salary negotiations.',
+      icon: 'abstract/106',
+    },
+    {
+      title: 'Growth',
+      desc: 'Excellence comes with experience from new challenges. We filter companies to fit you at every dimension.',
+      icon: 'abstract/151',
+    },
+    {
+      title: 'Anonimity',
+      desc: 'Job research is harder while still on contract. You don\'t need to come into light until you get your future secured.',
+      icon: 'abstract/154',
+    },
+    {
+      title: 'Tribe Benefits',
+      desc: 'Work with people who are just as passionate about their job as you are about yours.',
+      icon: 'abstract/167',
+    },
+  ]}>
+    <h2 slot="title">Key Areas we can help with</h2>
+    <p slot="copy">We found many devs having issues with navigating their careers because of different reasons like introversion, imposter syndrome, geography or even laziness. We can help get your career on an exciting path.</p>
+  </WhatWeDo>
+
+  <Remote class="developers" />
+  <Pricing2 class="developers" />
+
+  <HowToJoin>
+    If you'd like to challenge yourself and join our tribe here are
+  </HowToJoin>
+
+  <Footer>
+    <span slot="title">JOIN AS DEVELOPER</span>
+    <p slot="copy" style="max-width: 48rem;">
+      Take your career to the next level
+      by joining our esteemed tribe and connecting
+      with the career position of your dreams.
+    </p>
+  </Footer>
+
+</MainLayout>

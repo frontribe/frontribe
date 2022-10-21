@@ -1,0 +1,25 @@
+.text-anim {
+  position: relative;
+  overflow: hidden;
+
+  span {
+    transition: transform .3s cubic-bezier(.7,0,0,.7);
+    display: block;
+  }
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transition: transform .3s cubic-bezier(.7,0,0,.7);
+  }
+}
+
+.text-anim-hover:hover .text-anim {
+  span,
+  &::before {
+    transform: translateY(-100%);
+  }
+}

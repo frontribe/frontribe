@@ -1,0 +1,21 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="model-loader" is:inline set:html={styles}></style>
+
+<div class={'model-loader -loading ' + (Astro.props.class || '')}>
+  <div class="model-loader__container container">
+    <div class="model-loader__frame">
+      <div class="model-loader__info">Click anywhere to start</div>
+      <div class="model-loader__line"></div>
+      <div class="model-loader__text">0%</div>
+    </div>
+  </div>
+</div>
+
+<script type="module" hoist>
+  import loader from './scripts.js'
+  await loader()
+  document.querySelector('.model-loader').style.opacity = 0
+</script>

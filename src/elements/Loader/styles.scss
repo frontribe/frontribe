@@ -1,0 +1,56 @@
+$border: .1rem solid rgba(250,250,250, .1);
+
+.loader {
+  font-family: var(--font-tech);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+  opacity: 0;
+  transform: translateY(-10%);
+
+  &.-show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__frame {
+    height: 4rem;
+    width: 30rem;
+    border: $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @media (max-aspect-ratio: 1/1) {
+      max-width: 80%;
+      margin-left: 0;
+    }
+  }
+
+  &__line {
+    height: .2rem;
+    width: calc(100% - 8rem);
+    margin: 0 2rem;
+    background: currentColor;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform .2s ease-in-out;
+  }
+
+  &__text {
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: $border;
+  }
+
+  .no-js & { display: none; }
+}

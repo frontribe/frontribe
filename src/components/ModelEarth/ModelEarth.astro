@@ -1,0 +1,34 @@
+---
+import Model from '../../elements/Model/Model.astro'
+import ModelLoader from '../../elements/ModelLoader/ModelLoader.astro'
+import styles from './styles.scss?inline'
+---
+
+<style is:inline set:html={styles}></style>
+
+<Model
+  src="/model-earth/ziemia.gltf"
+  light="/model-earth/light.jpg"
+  fallback={['/images/model-earth-desktop.webp', '/images/model-earth-mobile.webp']}
+  planet={true}
+/>
+
+<ModelLoader class="loader-earth" />
+
+<div class="planet-secondary">
+  <img src="/images/moon.webp">
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+
+  stageLoader('model', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

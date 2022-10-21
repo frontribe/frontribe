@@ -1,0 +1,18 @@
+---
+import { Sprite } from 'astro-icon'
+import styles from './styles.scss?inline'
+
+const isSmall = Astro.props.class && Astro.props.class.includes('-small')
+const multiplier = Astro.props.multiplier || 5
+---
+
+<style data-uniq="iconBoxRoller" is:inline set:html={styles}></style>
+
+<div class={Astro.props.class + ' icon-box-roller'} data-multiplier={multiplier}>
+  {!isSmall && <Sprite name="icon-box" />}
+  <div class="icon-box-roller__icons">
+    {Astro.props.icons.map(icon => (
+      <Sprite name={icon} />
+    ))}
+  </div>
+</div>

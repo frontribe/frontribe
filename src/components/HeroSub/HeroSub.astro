@@ -1,0 +1,31 @@
+---
+import Scroll from '../../elements/Scroll/Scroll.astro'
+import styles from './styles.scss?inline'
+
+const snap = Astro.props.snap
+---
+
+<style data-uniq="hero-sub" is:inline set:html={styles}></style>
+
+<div class={snap && 'stage-scrollarea'} data-name="hero-sub">
+  <section class={'hero-sub' + (snap ? ' -snap stage' : '')} flyout-zoom=".75">
+    <div class="hero-sub__container container">
+      <div class="hero-sub__title" ><slot name="title"/></div>
+      <div class="hero-sub__copy"><slot name="copy" /></div>
+      <div class="hero-sub__scroll"><Scroll /></div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('hero-sub', {
+    desktop: () => document.querySelector('.hero-sub').classList.contains('-snap')
+      ? import('./desktop.js')
+      : import('./mobile.js')
+    ,
+    mobile: () => import('./mobile.js'),
+  })
+</script>
+
+

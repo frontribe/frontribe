@@ -1,0 +1,128 @@
+$svg-proportions: calc(409 / 1583);
+$svg-height: 85vw * $svg-proportions;
+$top-spacing: 20rem;
+
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: var(--white);
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  line-height: 3.2rem;
+  pointer-events: none;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    height: 12.8rem;
+
+    > * {
+      padding: 2rem;
+      pointer-events: all;
+    }
+  }
+
+  &__logo {
+    width: 8.8rem;
+    height: 8.8rem;
+    margin-left: -2rem;
+  }
+
+  &__burger {
+    margin-left: auto;
+    margin-right: -2rem;
+  }
+}
+
+.hero-title {
+  z-index: -50;
+  position: fixed;
+  top: $top-spacing;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  pointer-events: none;
+
+  svg { width: 100%; }
+}
+
+.model-shadow {
+  z-index: -40;
+  position: fixed;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.hero-shadow {
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(0,0,0, 0.7) 0, transparent 50%);
+  transform: scaleX(0.6) translatex(7%);
+}
+
+.hero {
+  padding-top: calc(#{$svg-height} + #{$top-spacing} + 3rem);
+  padding-bottom: 5rem;
+
+  &__container {
+    height: calc(100vh - (#{$svg-height} + #{$top-spacing} + 3rem + 5rem));
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1000px) {
+      height: calc(100svh - (#{$svg-height} + #{$top-spacing} + 3rem + 5rem));
+    }
+  }
+
+  &__text {
+    font-family: var(--font-tech);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    transition: opacity .3s ease-in-out;
+    opacity: 1 !important;
+  }
+
+
+}
+
+.button__dot,
+.button__text-before,
+.button__text-after,
+.model-loader { display: none; }
+
+@media (max-width: 1000px) {
+  .hero-shadow {
+    transform: none;
+  }
+
+  .hero {
+    &__text {
+      margin-top: auto;
+    }
+
+    &__footer {
+      margin-top: 5rem;
+    }
+  }
+}

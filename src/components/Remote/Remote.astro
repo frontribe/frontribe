@@ -1,0 +1,22 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="remote" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="remote">
+  <section class={`remote stage ${Astro.props.class}`} flyout-zoom=".75">
+    <div class="remote__container container">
+      <div class="remote__title">Remote work is a default mode for the future digital economy.</div>
+      <div class="remote__copy">We built our model on top of that and are contributing to it. Everyone should have access to the international markets and be assessed based on their talents.</div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('remote', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => ({create() {}, destroy() {}}),
+  })
+</script>

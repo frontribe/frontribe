@@ -1,0 +1,28 @@
+.icon-box-roller {
+  position: relative;
+  width: 7.6rem;
+  aspect-ratio: 1/1;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  &__icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    svg {
+      padding: 20%;
+    }
+  }
+
+  &.-small &__icons {
+    top: -20%;
+    left: -20%;
+  }
+}

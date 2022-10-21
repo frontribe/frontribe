@@ -1,0 +1,18 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="loader" is:inline set:html={styles}></style>
+
+<div class={'loader -loading ' + (Astro.props.class || '')}>
+  <div class="loader__container">
+    <div class="loader__frame">
+      <div class="loader__line"></div>
+      <div class="loader__text">0%</div>
+    </div>
+  </div>
+</div>
+
+<script type="module" hoist>
+  import './scripts.js'
+</script>

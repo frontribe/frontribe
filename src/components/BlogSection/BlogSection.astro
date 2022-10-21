@@ -1,0 +1,55 @@
+---
+import Button from '../../elements/Button/Button.astro'
+import IconBoxRoller from '../../elements/IconBoxRoller/IconBoxRoller.astro'
+import styles from './styles.scss?inline'
+
+const articles = Array.from(Array(Astro.props.items || 3))
+---
+
+<style data-uniq="blogSection" is:inline set:html={styles}></style>
+
+<section class="blog-section" flyout-zoom=".75" data-name="blogSection">
+  <div class="blog-section__container container">
+
+    {Astro.props.title && (
+      <h2 class="blog-section__title">{Astro.props.title}</h2>
+    )}
+
+    {articles.map(() => (
+      <article class="blog-section__article -small">
+        <IconBoxRoller
+          class="blog-section__icon -small"
+          icons={[
+            'abstract/4',
+            'abstract/1',
+            'abstract/2',
+          ]}
+          multiplier="1"
+        />
+        <div class="blog-section__article-title">
+          <a href="/articles" class="blog-section__article-meta">Programming, 4 weeks ago</a>
+          <span>how to handle web images in 2022</span>
+        </div>
+        <a href="/single" class="blog-section__link"></a>
+      </article>
+    ))}
+
+    {Astro.props.showButton && (
+      <Button
+        class="blog-section__button"
+        text="Read More"
+        href="/articles"
+        tabindex="0"
+      />
+    )}
+  </div>
+
+</section>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('blogSection', {
+    desktop: () => import('./scripts.js'),
+    mobile: () => import('./scripts.js'),
+  })
+</script>

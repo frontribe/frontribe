@@ -1,0 +1,10 @@
+<svg viewBox="0 0 78 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path opacity=".02" fill="currentColor" d="M1 0h76v76H1z"/>
+  <path opacity=".02" fill="currentColor" d="M26.3334 0h25.3333v76H26.3334z"/>
+  <path opacity=".02" fill="currentColor" d="M1 50.6666V25.3333h76v25.3333z"/>
+  <path d="m78 30-1-2v-6l-2-3.5V1L69.5.999999 69-8e-7 76.5 0 78 0v30Z" fill="currentColor"/>
+  <path fill="currentColor" d="M68 0h10v2H68zM78 46l-1 2v6l-2 3.5V75h-5.5l-.5 1h9V46Z"/>
+  <path fill="currentColor" d="M68 76h10v-2H68zM0 30l1-2-.000001-6L3 18.5V1L8.5.999999 9-8e-7 1.5 0-.0000024 0 0 30Z"/>
+  <path fill="currentColor" d="M10 0H0v2h10zM0 46l1 2-.000001 6L3 57.5V75h5.5l.5 1H-.0000024L0 46Z"/>
+  <path fill="currentColor" d="M10 76H0v-2h10z"/>
+</svg>

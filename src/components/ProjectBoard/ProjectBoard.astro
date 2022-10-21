@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="project-board" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="project-board">
+  <section class="project-board stage" flyout-zoom=".75">
+    <div class="project-board__container container">
+      <div class="project-board__header">
+        <div class="project-board__title">Project Board</div>
+        <div class="project-board__desc">
+          <div class="project-board__desc-code">
+            <Icon name="barcode" />
+          </div>
+          <div class="project-board__desc-text">
+            We‘ve been deploying developers to work across top agencies and teams that handle enterprice grade projects.
+          </div>
+        </div>
+      </div>
+
+      <div class="project-board__box">
+        <div class="project-board__row">
+          <div class="project-board__project">
+            <img src="/logos/rolling-stone-logo.svg" loading="lazy" decoding="async" width="550" height="99">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/nova-logo.svg" loading="lazy" decoding="async" width="76" height="42">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/xhq-logo.svg" loading="lazy" decoding="async" width="113" height="50">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/caulfield-logo.svg" loading="lazy" decoding="async" width="56" height="88">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/ampized-logo.svg" loading="lazy" decoding="async" width="179" height="47">
+          </div>
+          <div class="project-board__project">
+            <div data-label-switch></div>
+            <img src="/logos/lovesac-logo.svg" loading="lazy" decoding="async" width="465" height="112">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/newman-logo.svg" loading="lazy" decoding="async" width="164" height="33">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/wolf-gordon-logo.svg" loading="lazy" decoding="async" width="220" height="31">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/freshpet-logo.svg" loading="lazy" decoding="async" width="169" height="67">
+          </div>
+          <div class="project-board__project">
+            <img src="/logos/launch-hartford-logo.svg" loading="lazy" decoding="async" width="210" height="36">
+          </div>
+        </div>
+        <div class="project-board__labels">
+          <span class="project-board__label -one">XWP</span>
+          <span class="project-board__label -two">Digital Surgeons</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('project-board', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

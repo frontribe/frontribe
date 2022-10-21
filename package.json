@@ -1,0 +1,39 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --ext 'js,scss,astro' --ignore 'dist/' --exec npm run preview",
+    "build": "astro build && npm run minify && npm run htmlTransform",
+    "minify": "html-minifier --input-dir ./dist --output-dir ./dist --collapse-whitespace --minify-js --minify-css --file-ext html",
+    "htmlTransform": "node ./src/scripts/build/htmlTransform.js"
+  },
+  "devDependencies": {
+    "astro": "^0.24.3",
+    "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.10",
+    "@builder.io/partytown": "^0.7.1",
+    "animejs": "^3.2.1",
+    "astro-compress": "^0.0.15",
+    "astro-icon": "^0.6.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bezier-easing": "^2.1.0",
+    "cheerio": "^1.0.0-rc.12",
+    "coverage-shaker": "^0.0.1",
+    "glob": "^8.0.3",
+    "gltf-import-export": "^1.0.22",
+    "gltfpack": "^0.18.0",
+    "html-minifier": "^4.0.0",
+    "lodash": "^4.17.21",
+    "minify": "^9.1.0",
+    "minify-dir": "^1.0.6",
+    "motion": "^10.10.0",
+    "nodemon": "^2.0.15",
+    "terser": "^5.14.2",
+    "uglify-js": "^3.16.3",
+    "vite-plugin-chunk-split": "^0.2.7"
+  }
+}

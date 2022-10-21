@@ -1,0 +1,34 @@
+---
+import TextAnim from '../../elements/TextAnim/TextAnim.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="footer" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="footer">
+  <footer class="footer stage" flyout-zoom=".75">
+    <div class="footer__container container">
+      <div class="footer__title">+ <br class="show-mobile"> <slot name="title" /> </div>
+      <div class="footer__desc"> <slot name="copy" /> </div>
+      <div class="footer__mail">
+        <a tabindex="0" href="mailto:hi@frontribe.com" class="footer__mail-link text-anim-hover" target="_blank" rel="noopener noreferrer">
+          <TextAnim text="hi@frontribe.com"/>
+          <div class="footer__mail-line"></div>
+        </a>
+      </div>
+      <div class="footer__social">
+        <a tabindex="0" href="https://www.linkedin.com/company/frontribe-agency/" class="footer__social-link text-anim-hover" target="_blank" rel="noopener noreferrer"><TextAnim text="LinkedIn"/></a>
+        <a tabindex="0" href="https://facebook.com/frontribe" class="footer__social-link text-anim-hover" target="_blank" rel="noopener noreferrer"><TextAnim text="Facebook"/></a>
+      </div>
+      <div class="footer__copy">Made by Frontribe | 2022</div>
+    </div>
+  </footer>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('footer', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

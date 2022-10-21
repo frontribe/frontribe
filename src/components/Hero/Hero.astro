@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon'
+import Button from '../../elements/Button/Button.astro'
+import Scroll from '../../elements/Scroll/Scroll.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="hero" is:inline set:html={styles}></style>
+
+<h1 title="Frontribe" class="hero-title -loading">
+  <div class="container">
+    <Icon name="frontribe-title" flyout-zoom=".75" />
+  </div>
+</h1>
+
+<div class="model-shadow">
+  <div class="hero-shadow" flyout-zoom=".5"></div>
+</div>
+
+<div class="stage-scrollarea" data-name="hero">
+  <section class="hero stage" flyout-zoom=".75">
+    <div class="hero__container container">
+      <div class="hero__spacer"></div>
+      <p class="hero__text">
+        We are <strong>Frontribe</strong> <br>
+        Career Management Service for <strong>Frontend Developers</strong>
+      </p>
+      <div class="hero__footer">
+        <Button
+          class="hero__button"
+          text="Join as Developer"
+          flyout-open="contact"
+          tabindex="0"
+        />
+        <div class="hero__scroll" >
+          <Scroll />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+
+  stageLoader('hero', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

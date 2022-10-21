@@ -1,0 +1,41 @@
+.loader-earth {
+  bottom: 12rem;
+  width: 100%;
+
+  .model-loader__frame {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.planet-secondary {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 40rem;
+  z-index: -1;
+
+  img {
+    transform: scale(.8);
+  }
+}
+
+.planet-ring {
+  position: absolute;
+  top: -1%;
+  left: 1%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.model-fallback img {
+  transform: translate(-50%,-50%) translateY(40rem) scale(.9) !important;
+
+  @media (max-aspect-ratio: 1/1) {
+    transform: translate(-50%,-50%) scale(.9) !important;
+  }
+}

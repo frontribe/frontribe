@@ -1,0 +1,97 @@
+.how-to-join {
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  line-height: 3.2rem;
+  letter-spacing: .2em;
+
+  &__container {
+    height: 100vh;
+    height: var(--mobile-doc-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__box-wrap {
+    position: relative;
+    width: calc(100% * (5 / 12));
+  }
+
+  &__box {
+    color: var(--black);
+    background: var(--white);
+    clip-path: polygon(100% calc(100% - 4.4rem), 100% 0, 0 0, 0 2.45rem, .9rem 2.95rem, .9rem 10.6rem, 0 11.1rem, 0 calc(100% - 1.5rem), 1.5rem 100%, 42.8rem 100%, 46rem calc(100% - 5.4rem), 100% calc(100% - 5.4rem));
+    padding: 6rem;
+  }
+
+  &__box-bg {
+    position: absolute;
+    width: calc(100% + 4rem);
+    height: calc(100% - 3.5rem);
+    left: -2rem;
+    top: .5rem;
+    clip-path: polygon(0 2rem, 2rem 0, calc(100% - 2rem) 0, 100% 2rem, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 2rem 100%, 0 calc(100% - 2rem), 0 2rem);
+    background-color: var(--black);
+  }
+
+  &__box-icon-box {
+    float: right;
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    letter-spacing: .3em;
+  }
+
+  &__desc {
+    max-width: 33rem;
+    margin-top: 3.2rem;
+    opacity: .8;
+  }
+
+  &__list {
+    line-height: 3em;
+  }
+
+  &__button {
+    margin-top: 6rem;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    &__box {
+      display: none;
+    }
+
+    &__container {
+      flex-direction: column;
+      padding-bottom: 10rem;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    &__title {
+      font-size: 2rem;
+      line-height: 3.2rem;
+      letter-spacing: .4em;
+    }
+  }
+
+  .no-js & {
+    @media (min-aspect-ratio: 1/1) {
+      &__box-icon-box { display: none; }
+      &__box-wrap { width: 30%; }
+      &__desc { max-width: 60rem; }
+    }
+  }
+}
+
+// Shorten this section for mobile
+@media (max-aspect-ratio: 1/1) {
+  .how-to-join,
+  .how-to-join__container,
+  [data-name="howToJoin"] {
+    max-height: 70vh;
+  }
+}

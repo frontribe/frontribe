@@ -1,0 +1,61 @@
+---
+import { Icon, Sprite } from 'astro-icon'
+import IconBox from '../../elements/IconBox/IconBox.astro'
+import IconBoxRoller from '../../elements/IconBoxRoller/IconBoxRoller.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="carousel" is:inline set:html={styles}></style>
+
+<div class={Astro.props.class + ' carousel'}>
+  <Icon name="carousel-border" class="carousel__border -left" />
+  <Icon name="carousel-border" class="carousel__border -right" />
+
+  <div class="carousel__track">
+    <div class="carousel__items">
+      {[...Astro.props.items.slice(0,3), ...Astro.props.items.slice(-3)].map((item,i) => (
+        <a tabindex="-1" class="carousel__item" data-id={[0,1,2,1,2,3][i]}>
+          <div class="carousel__item-icon-box">
+            <Sprite name="icon-box-2" />
+            <Sprite name={item.icon} />
+          </div>
+          <div class="carousel__item-title">
+            <span>{item.title}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="carousel__box -loading">
+    <div class="carousel__box-track">
+      {Astro.props.items.map((item,i) => (
+        <div class="carousel__box-content">
+          <div class="carousel__box-title">
+            {item.title}
+          </div>
+          {i === 0
+            ? <IconBoxRoller class="carousel__box-icon-box -roller" icons={Astro.props.items.map(item => item.icon)} />
+            : <IconBox class="carousel__box-icon-box" name={item.icon} />
+          }
+          <p class="carousel__box-desc">
+            {item.desc}
+          </p>
+          <Icon name="barcode" class="carousel__box-barcode" />
+          <span class="carousel__box-index">0{i+1}</span>
+        </div>
+      ))}
+
+    </div>
+  </div>
+
+  <div class="carousel__nav">
+    <a href="javascript:void(0)" tabindex="0" class="carousel__nav-left"><Icon name="arrow-3" /></a>
+    <div class="carousel__nav-box">
+      <span class="carousel__nav-index">01</span>
+      <span class="carousel__nav-separator">/</span>
+      <span class="carousel__nav-total">04</span>
+    </div>
+    <a href="javascript:void(0)" tabindex="0" class="carousel__nav-right"><Icon name="arrow-3" /></a>
+  </div>
+</div>

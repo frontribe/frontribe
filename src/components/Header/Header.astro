@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon'
+import TextAnim from '../../elements/TextAnim/TextAnim.astro'
+import Burger from '../../elements/Burger/Burger.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="header" is:inline set:html={styles}></style>
+
+<header class="header">
+  <div class="header__container container">
+    <a href="/" class="header__logo" tabindex="0"><Icon name="frontribe-logo" /></a>
+    <a href="/for-developers" class="header__link text-anim-hover" tabindex="0">
+      <TextAnim text="For Developers" />
+    </a>
+    <a href="/for-companies" class="header__link text-anim-hover" tabindex="0">
+      <TextAnim text="For Companies" />
+    </a>
+    <button class="header__burger" flyout-open="menu" tabindex="0">
+      <Burger />
+    </button>
+  </div>
+</header>

@@ -1,0 +1,9 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="text-anim" is:inline set:html={styles}></style>
+
+<div class={Astro.props.class + ' text-anim'} data-text={Astro.props.text}>
+  <span>{Astro.props.text}</span>
+</div>

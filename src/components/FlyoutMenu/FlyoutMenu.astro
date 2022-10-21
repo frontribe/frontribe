@@ -1,0 +1,59 @@
+---
+import Flyout from '../../elements/Flyout/Flyout.astro'
+import Button from '../../elements/Button/Button.astro'
+import TextAnim from '../../elements/TextAnim/TextAnim.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="flyout-menu" is:inline set:html={styles}></style>
+
+<Flyout
+  class="flyout-menu"
+  name="menu"
+  showLogo={true}
+>
+
+  <nav class="flyout-menu__nav">
+    <a tabindex="-1" data-menu-nav href="/for-developers" class="flyout-menu__nav-link text-anim-hover"><TextAnim text="For Developers"/></a>
+    <a tabindex="-1" data-menu-nav href="/for-companies" class="flyout-menu__nav-link text-anim-hover"><TextAnim text="For Companies"/></a>
+    <!-- <a tabindex="-1" data-menu-nav href="/articles" class="flyout-menu__nav-link -small text-anim-hover"><TextAnim text="Articles & Case Studies"/></a> -->
+  </nav>
+
+  <footer class="flyout-menu__footer">
+    <div class="flyout-menu__footer-col">
+      <div class="flyout-menu__footer-title">Get in touch</div>
+      <div class="flyout-menu__footer-copy">
+        <a tabindex="-1" href="mailto:hi@frontribe.com" target="_blank" rel="noopener noreferrer">hi@frontribe.com</a><br>
+        PL: <a tabindex="-1" href="tel:0048733429048">0048 733 429 048</a>
+      </div>
+    </div>
+    <div class="flyout-menu__footer-col">
+      <div class="flyout-menu__footer-title">Follow</div>
+      <div class="flyout-menu__footer-copy">
+        <a tabindex="-1" href="https://www.linkedin.com/company/frontribe-agency/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
+        <a tabindex="-1" href="https://facebook.com/frontribe" target="_blank" rel="noopener noreferrer">Facebook</a><br>
+      </div>
+    </div>
+    <div class="flyout-menu__footer-col">
+      <Button
+        class="flyout-menu__button"
+        text="Project open sourced on github"
+        href="https://github.com/frontribe/frontribe"
+        target="_blank"
+        rel="noopener noreferrer"
+        tabindex="-1"
+      />
+    </div>
+  </footer>
+
+</Flyout>
+
+<script type="module" hoist>
+  function listener (e) {
+    const name = e.target.getAttribute('flyout-open')
+    if (name === 'menu') import('./scripts.js').then(module => module.default())
+  }
+
+  window.addEventListener('click', listener)
+  window.addEventListener('touchstart', listener)
+</script>

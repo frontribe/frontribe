@@ -1,0 +1,139 @@
+.pricing {
+  $price-height: 10rem;
+
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: var(--mobile-doc-height);
+    padding-top: 27rem;
+    padding-bottom: 20rem;
+  }
+
+  &__wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__border {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: .6rem;
+    height: 100%;
+    background: currentColor;
+    clip-path: polygon(0 0, .6rem 0, .6rem #{$price-height}, .1rem #{$price-height + .5rem}, .1rem calc(100% - #{$price-height + .5rem}), .6rem calc(100% - #{$price-height}), .6rem 100%, 0 100%, 0 0);
+
+    &.-left { left: 0; }
+    &.-right { right: 0; transform: scaleX(-1) translateY(-50%); }
+  }
+
+  &__price {
+    font-size: 7.2rem;
+    line-height: $price-height;
+    letter-spacing: .1em;
+    position: relative;
+    padding-left: 6rem;
+    overflow: hidden;
+    width: 31rem;
+    margin-left: auto;
+
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(250, 250, 250, .1);
+      border-left: 1px solid currentColor
+    }
+  }
+
+  &__title {
+    font-size: 20rem;
+    line-height: 1;
+    letter-spacing: .1em;
+    font-weight: bold;
+    margin-left: calc(100% * (2 / 12));
+    margin-top: 6rem;
+  }
+
+  &__desc {
+    font-size: 2.2rem;
+    line-height: 3.2rem;
+    letter-spacing: .2em;
+    margin-top: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 8%;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+
+    &__line {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: calc(100% - .2em);
+      height: 1px;
+      background: currentColor;
+      transform-origin: left;
+      transition: top .3s ease-in-out;
+    }
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    &__container {
+      padding: 0;
+      padding-top: 15rem;
+      padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__wrapper {
+      padding: 5rem;
+      justify-content: flex-start;
+    }
+
+    &__price {
+      margin: 0;
+      width: auto;
+      height: 8rem;
+      font-size: 2rem;
+      letter-spacing: .2em;
+      padding: 0;
+
+      &__bg { display: none; }
+    }
+
+    &__title {
+      margin-top: 20vh;
+      order: -1;
+      margin-left: 0;
+      font-size: 7.5rem;
+    }
+
+    &__desc {
+      font-size: 1.4rem;
+      display: block;
+    }
+
+    &__link {
+      top: .3rem;
+      margin-left: 0;
+      height: 1em;
+      line-height: 1em;
+    }
+  }
+}

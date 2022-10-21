@@ -1,0 +1,81 @@
+---
+import MainLayout from '../layouts/main.astro'
+
+import Background from '../elements/Background/Background.astro'
+import Dust from '../elements/Dust/Dust.astro'
+import ModelPunk from '../components/ModelPunk/ModelPunk.astro'
+import Hero from '../components/Hero/Hero.astro'
+import WhatWeDo from '../components/WhatWeDo/WhatWeDo.astro'
+import HowToJoin from '../components/HowToJoin/HowToJoin.astro'
+import Pricing from '../components/Pricing/Pricing.astro'
+import DevStatement from '../components/DevStatement/DevStatement.astro'
+import ProjectBoard from '../components/ProjectBoard/ProjectBoard.astro'
+// import BlogSection from '../components/BlogSection/BlogSection.astro'
+import Footer from '../components/Footer/Footer.astro'
+---
+
+<MainLayout
+  title="Frontribe | Frontend Career Management"
+  description="We Are Frontribe. Career Management Service For Frontend Developers"
+  slug="/"
+  bodyClass="home"
+>
+  <Background />
+  <ModelPunk />
+  <Dust />
+
+  <!-- 3D stages -->
+  <Hero />
+  <WhatWeDo items={[
+    {
+      title: 'Career Development',
+      desc: 'We\'ll find you a new role that fits your current skills, preferences, curiosity and financial appetite',
+      icon: 'abstract/58',
+    },
+    {
+      title: 'Technical Backup',
+      desc: 'Face a new challenge with the tribe behind your back. We\'re a collaborative community of brainstormers',
+      icon: 'abstract/4',
+    },
+    {
+      title: 'Legal Advisors',
+      desc: 'Keep your legal status and issues in check with our professional legal and tax advisors',
+      icon: 'abstract/47',
+    },
+    {
+      title: 'Social Sphere',
+      desc: 'Remote life can be tough on your own. You\'ll meet people of similar skills and goals that love to chat',
+      icon: 'abstract/171',
+    },
+  ]}>
+    <h2 slot="title">Let us unlock your true potential!</h2>
+    <p slot="copy">
+      <span class="hidden-mobile">We offer a career management service for frontend developers that will take your career to
+      the next level.</span>
+      From finding the right job opportunities to learning new skills, we can help you grow as
+      a developer and reach your professional goals.
+    </p>
+  </WhatWeDo>
+
+  <HowToJoin>
+    Our digital tribe is alway open for new members. Lets have a chat to see where you're at with your career and if we can help.
+  </HowToJoin>
+
+  <Pricing />
+
+  <div class="card-sections">
+    <DevStatement />
+    <ProjectBoard />
+    <!-- <BlogSection showButton={true} /> -->
+
+    <Footer>
+      <span slot="title">JOIN AS DEVELOPER</span>
+      <p slot="copy" style="max-width: 48rem;">
+        Take your career to the next level
+        by joining our esteemed tribe and connecting
+        with the career position of your dreams.
+      </p>
+    </Footer>
+  </div>
+
+</MainLayout>

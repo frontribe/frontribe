@@ -1,0 +1,20 @@
+.scroll {
+  opacity: 0;
+
+  &__tri {
+    opacity: .4;
+  }
+
+  &__circle-1 {
+    opacity: .4;
+  }
+
+  &__circle-2 {
+    opacity: .1;
+  }
+
+  .no-js &,
+  .tab-nav & {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,161 @@
+.blog-single {
+  margin-top: 9rem;
+  margin-bottom: 8rem;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &.-right,
+    &.-left {
+      width: calc(100% * 3 / 12);
+    }
+
+    &.-center {
+      width: calc(100% * 6 / 12);
+    }
+  }
+
+  &__back {
+    position: sticky;
+    top: 90rem;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-tech);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: .2em;
+
+    span { margin-right: .5rem; }
+  }
+
+  &__back-icon {
+    flex-shrink: 0;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3rem;
+    border-radius: 50%;
+    border: .1rem solid currentColor;
+
+    svg { width: 1.5rem }
+  }
+
+  &__share {
+    width: 8rem;
+    height: 8rem;
+    margin-left: auto;
+    margin-right: -5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+
+    svg { width: 1.8rem; }
+  }
+
+  &__social {
+    position: sticky;
+    top: 30rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: -1rem;
+    width: 5rem;
+  }
+
+  &__social-icon {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: .1rem solid currentColor;
+
+    & + & { margin-top: -.1rem; }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  // CMS
+
+  &__col.-center {
+    letter-spacing: .03em;
+
+    > * + * {
+      margin-top: 3rem;
+      display: block;
+    }
+
+    strong + p {
+      margin-top: 8rem;
+    }
+
+    strong {
+      font-size: 2.4rem;
+      line-height: 4rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+      color: rgba(250,250,250, .7);
+    }
+
+    img {
+      width: calc(100% * 4 / 6);
+      margin-bottom: 3rem;
+    }
+
+    .right {
+      float: right;
+      margin-left: 3rem;
+      margin-right: calc(100% * 1 / 6 * -1);
+    }
+  }
+
+
+  @media (max-aspect-ratio: 1/1) {
+    margin-top: 0;
+
+
+    &__col.-left {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    &__back {
+      position: static;
+    }
+
+    &__col.-center {
+      width: 100%;
+      margin-top: 5rem;
+
+      strong {
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+      }
+
+      img,
+      .right {
+        width: calc(100% + 10vw);
+        float: none;
+        margin-left: -5vw;
+        margin-right: 0;
+        max-width: 100vw;
+      }
+    }
+  }
+}

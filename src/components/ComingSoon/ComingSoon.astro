@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon'
+import Button from '../../elements/Button/Button.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="comming-soon" is:inline set:html={styles}></style>
+
+<header class="header">
+  <div class="header__container container">
+    <span class="header__logo"><Icon name="frontribe-logo" /></span>
+    <span class="header__burger">Coming Soon</span>
+  </div>
+</header>
+
+<h1 title="Frontribe" class="hero-title">
+  <div class="container">
+    <Icon name="frontribe-title" />
+  </div>
+</h1>
+
+<div class="model-shadow">
+  <div class="hero-shadow"></div>
+</div>
+
+<div class="stage-scrollarea" data-name="hero">
+  <section class="hero stage">
+    <div class="hero__container container">
+      <p class="hero__text">
+        We are <strong>Frontribe</strong> <br>
+        Career Management Service for <strong>Frontend Developers</strong>
+      </p>
+      <div class="hero__footer">
+        <Button
+          class="hero__button"
+          text="hi@frontribe.com"
+          href="mailto:hi@frontribe.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </section>
+</div>
+
+<script hoist type="module">
+  import createButtonAnim from '../../elements/Button/scripts.js'
+  const buttonAnim = createButtonAnim(document.querySelector('.hero__button'))
+  buttonAnim.play()
+</script>

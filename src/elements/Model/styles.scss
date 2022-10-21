@@ -1,0 +1,44 @@
+.model-zoomer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.model-fallback img,
+model-viewer {
+  position: fixed;
+  top: calc(var(--mobile-doc-height) / 2);
+  left: 50%;
+  width: 200vw;
+  height: calc(var(--mobile-doc-height) + 2rem);
+  background: transparent;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  &.planet {
+    width: 100vw;
+    height: 100vw;
+
+    @media (max-aspect-ratio: 1/1) {
+      width: var(--mobile-doc-height);
+      height: var(--mobile-doc-height);
+    }
+  }
+}
+
+model-viewer {
+  opacity: 0;
+
+  .no-js & { display: none; }
+
+  @media (max-aspect-ratio: 1/1) {
+    height: calc(var(--mobile-doc-height) + 160px);
+  }
+}
+
+.model-fallback img {
+  max-width: none;
+  width: auto;
+}

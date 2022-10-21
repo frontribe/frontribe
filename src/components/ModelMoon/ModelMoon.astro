@@ -1,0 +1,35 @@
+---
+import Model from '../../elements/Model/Model.astro'
+import ModelLoader from '../../elements/ModelLoader/ModelLoader.astro'
+import styles from './styles.scss?inline'
+---
+
+<style is:inline set:html={styles}></style>
+
+<Model
+  src="/model-moon/scene.gltf"
+  light="/model-moon/light.jpg"
+  fallback={['/images/model-moon-desktop.webp', '/images/model-moon-mobile.webp']}
+  planet={true}
+/>
+
+<ModelLoader class="loader-moon" />
+
+<div class="planet-secondary">
+  <img src="/images/earth.webp" />
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+  <div class="planet-ring"></div>
+</div>
+
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+
+  stageLoader('model', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

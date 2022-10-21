@@ -1,0 +1,13 @@
+---
+import { Sprite } from 'astro-icon'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="iconBox" is:inline set:html={styles}></style>
+
+<div class={Astro.props.class + ' icon-box'}>
+  <Sprite name="icon-box" class="icon-box__bg" />
+  <div class="icon-box__icon">
+    <Sprite name={Astro.props.name} />
+  </div>
+</div>

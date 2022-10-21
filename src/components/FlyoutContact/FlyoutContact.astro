@@ -1,0 +1,77 @@
+---
+import Flyout from '../../elements/Flyout/Flyout.astro'
+import TextAnim from '../../elements/TextAnim/TextAnim.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="flyout-contact" is:inline set:html={styles}></style>
+
+<Flyout name="contact">
+
+  <form action="/message" class="flyout-contact" novalidate>
+    <div class="flyout-contact__col">
+      <h1 class="flyout-contact__title">Join Frontribe</h1>
+      <p class="flyout-contact__desc">
+        We’re here to push you to your limits and fit you into the right company. Our agents will talk to you to define what are your strenghts and hidden gems - if we believe in you, we’ll take you to the level where you belong.
+        <br><br>
+        We assume that you did your work so make sure to meet our minimum requirements.
+      </p>
+      <div class="flyout-contact__requirements">
+        <div class="flyout-contact__requirement">Minimum requirements</div>
+        <div class="flyout-contact__requirement">
+          <span>Experience</span>
+          <span>4 years</span>
+        </div>
+        <div class="flyout-contact__requirement">
+          <span>Fields</span>
+          <span>Frontend / Ui developer</span>
+        </div>
+      </div>
+    </div>
+    <div class="flyout-contact__col">
+      <div class="flyout-contact__form-header">
+        <div class="flyout-contact__form-title">Application Form</div>
+        <div class="flyout-contact__form-meta">* Required fields</div>
+      </div>
+      <div class="flyout-contact__field">
+        <input tabindex="-1" type="text" class="flyout-contact__input" placeholder=" " required name="Name">
+        <label class="flyout-contact__field-label">Name*</label>
+        <div class="flyout-contact__field-border"></div>
+      </div>
+      <div class="flyout-contact__field">
+        <input tabindex="-1" type="email" class="flyout-contact__input" placeholder=" " required name="Email">
+        <label class="flyout-contact__field-label">Email*</label>
+        <div class="flyout-contact__field-border"></div>
+      </div>
+      <div class="flyout-contact__field">
+        <input tabindex="-1" type="text" class="flyout-contact__input" placeholder=" " required name="Experience">
+        <label class="flyout-contact__field-label">Experience (years)*</label>
+        <div class="flyout-contact__field-border"></div>
+      </div>
+      <div class="flyout-contact__field">
+        <input tabindex="-1" type="text" class="flyout-contact__input" placeholder=" " required name="URL">
+        <label class="flyout-contact__field-label">CV / Linkedin / Github URL*</label>
+        <div class="flyout-contact__field-border"></div>
+      </div>
+      <div class="flyout-contact__field">
+        <textarea tabindex="-1" class="flyout-contact__textarea" placeholder=" " required name="About"></textarea>
+        <label class="flyout-contact__field-label">About you*</label>
+        <div class="flyout-contact__field-border"></div>
+      </div>
+    </div>
+    <button tabindex="-2" class="flyout-contact__button text-anim-hover">
+      <div class="flyout-contact__button-line"></div>
+      <TextAnim class="flyout-contact__button-text" text="Submit" />
+    </button>
+  </form>
+
+</Flyout>
+
+<script type="module" hoist>
+  window.addEventListener('click', function listener (e) {
+    if (e.target.getAttribute('flyout-open') === 'contact') {
+      import('./scripts.js')
+      window.removeEventListener('click', listener)
+    }
+  })
+</script>

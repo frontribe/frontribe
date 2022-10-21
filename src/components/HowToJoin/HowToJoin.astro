@@ -1,0 +1,56 @@
+---
+import Button from '../../elements/Button/Button.astro'
+import IconBoxRoller from '../../elements/IconBoxRoller/IconBoxRoller.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="howToJoin" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="howToJoin">
+  <section class="how-to-join stage" flyout-zoom=".75">
+    <div class="how-to-join__container container">
+      <div class="how-to-join__text">
+        <div class="how-to-join__title">How to Join Us</div>
+        <p class="how-to-join__desc">
+          <slot/>
+        </p>
+        <Button
+          class="how-to-join__button"
+          text="Join as Developer"
+          flyout-open="contact"
+          tabindex="0"
+        />
+      </div>
+
+      <div class="how-to-join__box-wrap">
+        <div class="how-to-join__box-bg"></div>
+        <div class="how-to-join__box">
+          <IconBoxRoller
+            class="how-to-join__box-icon-box"
+            icons={[
+              'abstract/64',
+              'abstract/3',
+              'abstract/4',
+              'abstract/6',
+            ]}
+          />
+          <ul class="how-to-join__list">
+            <li class="how-to-join__list-item">Fill in request form</li>
+            <li class="how-to-join__list-item">Have a tech call with one of our devs</li>
+            <li class="how-to-join__list-item">Get paperwork done</li>
+            <li class="how-to-join__list-item">Onboard to Tribe </li>
+            <li class="how-to-join__list-item">Relax and wait for a job proposal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('howToJoin', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

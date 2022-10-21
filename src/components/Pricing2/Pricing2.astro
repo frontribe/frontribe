@@ -1,0 +1,34 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="pricing2" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="pricing2" id="pricing">
+  <section class={`pricing2 stage ${Astro.props.class}`} flyout-zoom=".75">
+    <div class="pricing2__container container">
+      <div class="pricing2__head">
+        <div class="pricing2__title">Pricing</div>
+        <div class="pricing2__benefits">
+          no fees <br>
+          no subscriptions <br>
+          virtually free
+        </div>
+      </div>
+      <div class="pricing2__body">
+        <p class="pricing2__copy -first">We tax market ineffectiveness that creates a spread between developer salary expectation & company’s budget for the role.</p>
+        <p class="pricing2__copy -second">This way each party meets their financial goals and our pay comes from our effectiveness in creating and maintaining the gravity between both parties.</p>
+        <span class="pricing2__separator"></span>
+        <div class="pricing2__frame"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('pricing2', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => ({create() {}, destroy() {}}),
+  })
+</script>

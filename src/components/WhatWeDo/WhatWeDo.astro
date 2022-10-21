@@ -1,0 +1,25 @@
+---
+import Carousel from '../Carousel/Carousel.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="whatWeDo" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="whatWeDo">
+  <section class={'what-we-do stage ' + Astro.props.class || ''} flyout-zoom=".75">
+    <div class="what-we-do__container container">
+      <!-- <div class="what-we-do__gradient"></div> -->
+      <div class="what-we-do__title"><slot name="title" /></div>
+      <div class="what-we-do__copy"><slot name="copy" /></div>
+      <Carousel class="what-we-do__carousel" items={Astro.props.items} />
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('whatWeDo', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => import('./mobile.js'),
+  })
+</script>

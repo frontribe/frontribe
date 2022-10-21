@@ -1,0 +1,134 @@
+.dev-statement {
+  background: var(--black);
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  &__container {
+    padding-top: 15vh;
+  }
+
+  &__title {
+    font-family: var(--font-tech);
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    margin-top: 25rem;
+    max-width: calc(100% * (7 / 12));
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    margin-top: 3.6rem;
+    opacity: 0.7;
+    max-width: calc(100% * (5 / 12));
+  }
+
+  &__caption {
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-tech);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #787878;
+    margin-top: 6rem;
+    display: inline-block;
+    padding-right: 1rem;
+  }
+
+  &__caption-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 1em;
+    background: var(--black);
+    transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.320, 1);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      background: var(--white);
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__image-wrap {
+    float: right;
+    width: calc(100% * (4 / 12));
+  }
+
+  &__image {
+    width: 100%;
+    height: 85rem;
+    object-fit: cover;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    &__title {
+      order: -2;
+      margin-top: 0;
+      max-width: 100%;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      letter-spacing: .4em;
+    }
+
+    &__desc {
+      order: -1;
+      max-width: 100%;
+      margin-bottom: 3.8rem;
+    }
+
+    &__image-wrap {
+      width: 5rem;
+      height: 5rem;
+      position: relative;
+      border-radius: 50%;
+      border: .1rem solid var(--white);
+      overflow: hidden;
+      margin-right: 3rem;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+    }
+
+    &__caption {
+      margin-top: 0;
+      padding-right: 0;
+      width: calc(100% - 20rem);
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+
+    &__caption-overlay {
+      display: none;
+    }
+  }
+
+  .no-js & {
+    &__caption-overlay {
+      display: none;
+    }
+  }
+}

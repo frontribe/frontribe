@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="flyout" is:inline set:html={styles}></style>
+
+<section class={Astro.props.class + ' flyout'} flyout-name={Astro.props.name}>
+  <div class="flyout__scroll">
+    <div class="flyout__container container">
+
+      <header class="flyout__header">
+        {Astro.props.showLogo && <a tabindex="-1" data-menu-nav href="/" class="flyout__header-logo"><Icon name="frontribe-logo" /></a>}
+        {Astro.props.showLogo && <a tabindex="-1" data-menu-nav href="/" class="flyout__header-title"><Icon name="frontribe-title" /></a>}
+        <a href="#close" tabindex="-1" class="flyout__header-close" flyout-close><Icon name="cross" /></a>
+      </header>
+
+      <slot />
+
+    </div>
+  </div>
+</section>
+
+<script type="module" hoist>
+  // We need to take care for button that get destroyed and automatically loose listeners
+  function listener (e) {
+    const name = e.target.getAttribute('flyout-open')
+    if (name) {
+      if (matchMedia('(max-aspect-ratio: 1/1)').matches) import(`./mobile.js`).then(module => module.default(name, e))
+      else  import(`./desktop.js`).then(module => module.default(name, e))
+    }
+  }
+
+  window.addEventListener('click', listener)
+  window.addEventListener('touchstart', listener)
+</script>

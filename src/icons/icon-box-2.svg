@@ -1,0 +1,6 @@
+<svg viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.02" width="51" height="51" fill="currentColor"/>
+<rect opacity="0.02" x="17" width="17" height="51" fill="currentColor"/>
+<rect opacity="0.02" y="34" width="17" height="51" transform="rotate(-90 0 34)" fill="currentColor"/>
+<path d="M0 0V-1H-1V0H0ZM51 0H52V-1H51V0ZM51 51V52H52V51H51ZM0 51H-1V52H0V51ZM0 1H51V-1H0V1ZM50 0V51H52V0H50ZM51 50H0V52H51V50ZM1 51V0H-1V51H1Z" fill="black"/>
+</svg>

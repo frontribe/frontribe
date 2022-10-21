@@ -1,0 +1,73 @@
+.flyout {
+  z-index: 9999;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+
+  &__scroll {
+    min-height: calc(100vh + 1px);
+  }
+
+  &__container {
+    min-height: 100vh;
+    min-height: var(--mobile-doc-height);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    height: 12.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+  }
+
+  &__header-logo {
+    padding: 2rem;
+    width: 8.8rem;
+    height: 8.8rem;
+    transform: translateX(-2rem);
+  }
+
+  &__header-title {
+    width: 14.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__header-close {
+    margin-left: auto;
+    margin-right: -2rem;
+    padding: 3.2rem;
+    width: 8.8rem;
+    height: 8.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg { width: 100%; }
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    &__header-title {
+      display: none;
+    }
+
+    &__header-logo {
+      width: 7.6rem;
+      height: 7.6rem;
+    }
+  }
+}

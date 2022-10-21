@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon'
+import TextAnim from '../TextAnim/TextAnim.astro'
+import styles from './styles.scss?inline'
+
+Astro.props.class += ' button text-anim-hover'
+Astro.props.href = Astro.props.href || 'javascript:void(0)'
+---
+
+<style data-uniq="button" is:inline set:html={styles}></style>
+
+<a {...Astro.props}>
+  <div class="button__text">
+    <TextAnim class="button__text-inner" text={Astro.props.text} />
+    <div class="button__text-before"></div>
+    <div class="button__text-after"></div>
+  </div>
+  <div class="button__dot"></div>
+  <div class="button__border -top"></div>
+  <div class="button__border -right"><Icon name="button-border" /></div>
+  <div class="button__border -bottom"></div>
+  <div class="button__border -left"><Icon name="button-border" /></div>
+</a>

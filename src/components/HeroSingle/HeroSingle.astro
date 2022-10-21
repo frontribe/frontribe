@@ -1,0 +1,42 @@
+---
+import Scroll from '../../elements/Scroll/Scroll.astro'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="hero-single" is:inline set:html={styles}></style>
+
+<div data-name="hero-single">
+  <section class="hero-single" flyout-zoom=".75">
+    <img class="hero-single__featured-image" src="/images/article-1.jpg" alt="" decoding="async">
+    <div class="hero-single__gradient"></div>
+    <div class="hero-single__container container">
+      <a href="" class="show-mobile">Programming</a>
+      <div class="hero-single__title">
+        Automate mission critical tasks
+      </div>
+      <div class="hero-single__footer">
+        <div class="hero-single__author">
+          <div class="hero-single__author-avatar" >
+            <img src="/images/karol-small.webp" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="hero-single__author-copy">
+            <a href="" class="hidden-mobile">Programming</a> <br class="hidden-mobile">
+            posted by karol <br class="show-mobile">
+            3 weeks ago
+          </div>
+        </div>
+        <div class="hero-single__scroll"><Scroll /></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+  stageLoader('hero-single', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => ({create(){}, destroy(){}}),
+  })
+</script>
+
+

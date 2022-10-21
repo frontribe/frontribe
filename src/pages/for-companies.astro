@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/main.astro'
+import ModelEarth from '../components/ModelEarth/ModelEarth.astro'
+import HeroSub from '../components/HeroSub/HeroSub.astro'
+import WhatWeDo from '../components/WhatWeDo/WhatWeDo.astro'
+import Remote from '../components/Remote/Remote.astro'
+import OrderedList from '../components/OrderedList/OrderedList.astro'
+import Pricing2 from '../components/Pricing2/Pricing2.astro'
+import Footer from '../components/Footer/Footer.astro'
+---
+
+<MainLayout
+  title="Frontribe | For Companies"
+  description="Hire Like Never Before. Our Developer At Your Doorstep"
+  slug="/for-companies"
+>
+  <ModelEarth />
+
+  <HeroSub snap={true}>
+    <p slot="title">
+      <strong>Hire</strong> Like <br class="show-mobile"><span class="hidden-mobile"></span> never before <br>
+      <span class="hidden-mobile">Our <strong>Developer</strong> at your doorstep</span>
+    </p>
+    <p slot="copy" style="max-width: 88rem;">Frontribe is a career management service dedicated to Frontend Developers. We are their business representatives and help them connect with great companies like yours.</p>
+  </HeroSub>
+
+  <WhatWeDo class="planet" items={[
+    {
+      title: 'Dedicated Agent',
+      desc: 'Senior Developers as agents bring lossless communication and solid bridge.',
+      icon: 'abstract/65',
+    }, {
+      title: 'Senior Developer',
+      desc: ' Developers we work with are same good or better than their agent.',
+      icon: 'abstract/49',
+    }, {
+      title: 'Lightspeed hire',
+      desc: 'We do heavy lifting beforehand so you don\'t have to.',
+      icon: 'abstract/45',
+    }, {
+      title: 'Technical Backup',
+      desc: 'Hire one developer, get access to the tribe\'s collective power.',
+      icon: 'abstract/166',
+    },
+  ]}>
+    <h2 slot="title">What we do</h2>
+    <p slot="copy">We're not yet another outsourcing company thus working with us feels much different. We  work 1:1 rather than having pools of developers under our active management.</p>
+  </WhatWeDo>
+
+  <Remote class="companies" />
+  <OrderedList />
+  <Pricing2 class="companies" />
+
+  <Footer>
+    <span slot="title">Become <br class="show-mobile">a Partner</span>
+    <p slot="copy" style="max-width: 63rem;">
+      If your company wasn't selected and contacted directly
+      but you find our offer interesting feel free to contact us.
+      <span class="hidden-mobile">We're interested in building a network of reliable partners
+      that could accommodate a higher volume of talented devs.</span>
+    </p>
+  </Footer>
+
+</MainLayout>

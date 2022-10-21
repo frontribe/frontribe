@@ -1,0 +1,141 @@
+.footer {
+  color: var(--black);
+  padding-top: 42rem;
+  padding-bottom: 9rem;
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 15rem);
+    background: var(--white);
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: calc(100% * 1 / 12);
+  }
+
+  &__title {
+    font-size: 6.4rem;
+    line-height: 8rem;
+    letter-spacing: 0.2em;
+    width: 100%;
+    margin-bottom: 5rem;
+
+    br + * {
+      margin-left: 3rem;
+    }
+  }
+
+  &__desc {
+    font-size: 1.6rem;
+    letter-spacing: 0.2em;
+    line-height: 2.4rem;
+    margin-bottom: 7.2rem;
+    padding-left: 8rem;
+    margin-bottom: 23rem;
+  }
+
+  &__mail {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    letter-spacing: 0.4em;
+    display: block;
+    margin-bottom: 12rem;
+    margin-left: auto;
+    text-align: right;
+    width: calc(100% * 4 / 12);
+    transform: translateX(.4em);
+
+    &-link {
+      position: relative;
+      display: inline-block;
+    }
+
+
+    &-line {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      height: .1rem;
+      width: calc(100% - .4em);
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+  }
+
+  &__social {
+    width: 50%;
+  }
+
+  &__social-link {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    line-height: 3.2rem;
+    margin-right: 5.6rem;
+    display: inline-block;
+  }
+
+  &__copy {
+    width: 50%;
+    text-align: right;
+    letter-spacing: .2em;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    position: relative;
+    z-index: 2;
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
+
+    &::before {
+      height: 100%;
+    }
+
+    &__title {
+      font-size: 3.6rem;
+      line-height: 1.5em;
+
+      br + * {
+        margin-left: 0;
+      }
+    }
+
+    &__desc {
+      font-size: 1.4rem;
+      line-height: 3.2rem;
+      padding: 0;
+      width: 100%;
+      margin-bottom: 2.5rem;
+    }
+
+    &__mail {
+      font-size: 2rem;
+      line-height: 3.2rem;
+      width: 100%;
+      text-align: left;
+      transform: none;
+    }
+
+    &__social {
+      width: 100%;
+      margin-bottom: 7rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__copy {
+      width: 100%;
+      text-align: left;
+    }
+  }
+}

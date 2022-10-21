@@ -1,0 +1,258 @@
+.flyout-contact {
+  $this: &;
+
+  display: flex;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  font-family: var(--font-tech);
+  margin-top: 10rem;
+
+  &__col {
+    width: 50%;
+
+    &:first-of-type {
+      padding-right: 13rem;
+    }
+  }
+
+  &__title {
+    line-height: 1;
+    font-size: 3.2rem;
+    letter-spacing: .3em;
+  }
+
+  &__desc {
+    text-transform: none;
+    font-family: var(--font-system);
+    margin-top: 3.2rem;
+    opacity: .5;
+  }
+
+  &__requirements {
+    margin-top: 10rem;
+    line-height: 5rem;
+    font-size: 1.4rem;
+    letter-spacing: .2em;
+  }
+
+  &__requirement {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      opacity: .2;
+      background: repeating-linear-gradient(to right, white 0, white  1px, transparent 1px, transparent 5px);
+    }
+  }
+
+  &__form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  &__form-title {
+    line-height: 1;
+    font-size: 2.4rem;
+    letter-spacing: .3em;
+  }
+
+  &__form-meta {
+    line-height: 1;
+    font-size: 1.6rem;
+    letter-spacing: .2em;
+  }
+
+  &__field {
+    line-height: 5rem;
+    min-height: 5rem;
+    font-size: 1.4rem;
+    letter-spacing: .2em;
+    position: relative;
+    overflow: hidden;
+
+    & + & { margin-top: -1px; }
+
+    &::before,
+    &::after {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      top: 0;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+    }
+
+    &::before { left: 0; }
+    &::after { right: 0; }
+  }
+
+  &__field-label {
+    padding: 0 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: opacity .2s cubic-bezier(.7,0,0,.7);
+  }
+
+  &__field-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border: 1px solid #222;
+    transition: border-color .2s cubic-bezier(.7,0,0,.7);
+  }
+
+  &__input {
+    cursor: pointer;
+    width: 100%;
+    padding: 0 4rem;
+  }
+
+  &__textarea {
+    cursor: pointer;
+    width: 100%;
+    height: 15rem;
+    padding: 0 4rem;
+  }
+
+  &__button {
+    width: 100%;
+    line-height: 5rem;
+    font-size: 1.4rem;
+    letter-spacing: .2em;
+    border: 1px solid #444;
+    margin-top: 15rem;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(230,230,230,1);
+    color: black;
+    opacity: .15;
+    pointer-events: none;
+    transition: opacity .2s cubic-bezier(.7,0,0,.7);
+    position: relative;
+    overflow: hidden;
+
+    &:disabled {
+      pointer-events: none !important;
+    }
+  }
+
+  &__button-line {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 7.5rem);
+    width: 15rem;
+    height: 2px;
+    background: #ddd;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  &__button-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[status] span {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 2rem;
+      border-radius: 50%;
+      transform: translateY(-.1rem);
+    }
+
+    &[status=success] span {
+      background: green
+    }
+
+    &[status=error] span {
+      background: red
+    }
+  }
+
+  // States
+
+  &:valid {
+    #{$this}__button {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__input,
+  &__textarea {
+
+    &:focus {
+      ~ #{$this}__field-border { box-shadow: inset 0 0 0 1px rgb(87, 87, 87); }
+      ~ #{$this}__field-label { opacity: 0; }
+    }
+
+    &:not(:placeholder-shown) {
+      ~ #{$this}__field-label { opacity: 0; }
+    }
+
+    &:not(:placeholder-shown):not(:focus):invalid {
+      ~ #{$this}__field-border { box-shadow: inset 0 0 0 1px rgb(181, 0, 0); }
+    }
+  }
+
+
+
+  @media (max-aspect-ratio: 1/1) {
+    flex-direction: column;
+    margin-top: 0;
+
+    &__col {
+      width: 100%;
+      &:first-of-type { padding-right: 0; }
+    }
+
+    &__title {
+      font-size: 2.4rem;
+    }
+
+    &__requirements {
+      margin: 5rem 0 7rem 0;
+    }
+
+    &__form-header {
+      flex-direction: column;
+    }
+
+    &__form-title {
+      margin-bottom: 2rem;
+    }
+
+    &__form-meta {
+      font-size: 1.4rem;
+      opacity: .5;
+    }
+
+    &__field-label,
+    &__input,
+    &__textarea {
+      padding: 0 2rem;
+    }
+
+    &__button {
+      margin-top: 5rem;
+      margin-bottom: 15rem;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon'
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="blogSingle" is:inline set:html={styles}></style>
+
+<section class="blog-single" flyout-zoom=".75" data-name="blogSingle">
+  <div class="blog-single__container container">
+    <div class="blog-single__col -left">
+      <a href="/articles" class="blog-single__back">
+        <div class="blog-single__back-icon"><Icon name="arrow-3" /></div>
+        <span class="hidden-mobile">All</span> Articles
+      </a>
+
+      <div class="blog-single__share show-mobile">
+        <div class="blog-single__share-icon"><Icon name="share" /></div>
+      </div>
+    </div>
+
+    <div class="blog-single__col -center">
+      <strong>South African edtech startup FoondaMate has secured $2 million seed funding in a round led by LocalGlobe, the UK-based venture capital firm, to drive uptake of its Whatsapp and Facebook-based learning chatbot across the globe.</strong>
+      <strong>Foondamate helps students with their revision by giving them immediate answers to questions and access to revision papers, while also guiding them in responses to questions.</strong>
+      <p>Co-founder Dacod Magagula told TechCrunch that the startup targets high-school students in emerging markets where Whatsapp is widely used and is a lot cheaper or free to access. Its learning chatbot, he said, is easy to use, affordable and acts as an organized alternative to using search engines for study. Educators also use FoondaMate’s integrated resources to set and post homework and to share other learning materials with students.,</p>
+      <img src="/images/article-2.jpg" class="right">
+      <p>Magagula said he started working on FoondaMate in August 2020, when WhatsApp opened its API in beta – to help businesses connect to customers.,</p>
+      <p>“It (WhatsApp) was in beta at the time, and I started playing around with it … I thought it’d be a really good way to enable access to study materials to students in the same position as myself…because a majority of students do not have access to the wider internet ,</p>
+      <p>but have access to WhatsApp. Also, a lot of network providers offer WhatsApp for free to attract users to their network,” said Magagula, who co-founded FoondaMate with Tao Boyle – who, before they teamed up, was trying to fix the supply chain to get textbooks to underserved schools.,</p>
+      <p>Besides, Magagula had additional experience from his high-school days that made him see the feasibility of the idea.,</p>
+      <p>“…during the final year of high school in South Africa, I used the computer my brother and I had bought using our savings, for studies and to download all revision materials I could get my hands on. I had a huge database of past papers but no way of sharing it with my friends, and printing them was expensive,” said Magagula, who serves as the startup’s CEO and CTO.,</p>
+      <p>“… But the materials played a big role in my success in school as I graduated top of my class and my performance was the best ever in the history of school (at that time). And so FoondaMate was created to make these resources easily accessible to students,” said Magagula, who pursued Computer Science at the University of CapeTown. After teaming up with Boyle, they added more functionalities and integrated it with additional services.,</p>
+    </div>
+
+    <div class="blog-single__col -right hidden-mobile">
+      <div class="blog-single__social">
+        <div class="blog-single__social-icon"><Icon name="facebook" /></div>
+        <div class="blog-single__social-icon"><Icon name="twitter" /></div>
+        <div class="blog-single__social-icon"><Icon name="reddit" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" hoist>
+  // import stageLoader from '../../scripts/stageLoader.js'
+  // stageLoader('blogSingle', {
+  //   desktop: () => import('./scripts.js'),
+  //   mobile: () => ({ create(){}, destroy(){} }),
+  // })
+</script>
