@@ -1,8 +1,12 @@
-# Welcome to [Frontribe Official Website](https://frontribe.com)
+![Hero](https://user-images.githubusercontent.com/4959890/197190562-ecd1c07b-9879-46ee-b9a5-62f0dbdff836.jpg)
+
+
+
+## Welcome to [Frontribe Official Website](https://frontribe.com)
 
 This site is built with [Astro](https://astro.build)
 
-## 🚀 Project Structure
+### Project Structure
 
 Inside of the project, you'll see the following folders and files:
 
@@ -25,7 +29,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+### Commands
 
 All commands are run from the root of the project, from a terminal:
 
