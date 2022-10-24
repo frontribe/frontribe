@@ -39,7 +39,7 @@ export async function create (config) {
 
 export function destroy (names) {
   const modelViewer = document.getElementById('model')
-  delete modelViewer.style.transition
+  modelViewer.style.transition = 'none'
 
   names.forEach(name => {
     const el = document.querySelector(`.model-trigger.-${name}`)
