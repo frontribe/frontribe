@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon --ext 'js,scss,astro' --ignore 'dist/' --exec npm run preview",
+    "preview": "npm run build && astro preview --host",
     "build": "astro build && npm run minify && npm run htmlTransform",
     "minify": "html-minifier --input-dir ./dist --output-dir ./dist --collapse-whitespace --minify-js --minify-css --file-ext html",
     "htmlTransform": "node ./src/scripts/build/htmlTransform.js"
