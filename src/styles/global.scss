@@ -51,6 +51,12 @@ svg {
   &:focus-within {
     opacity: 1 !important;
   }
+
+  @media (max-aspect-ratio: 1/1) {
+    .card-sections & {
+      min-height: 0;
+    }
+  }
 }
 
 .snap {
