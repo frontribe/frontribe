@@ -8,7 +8,7 @@ import Hero from '../components/Hero/Hero.astro'
 import WhatWeDo from '../components/WhatWeDo/WhatWeDo.astro'
 import HowToJoin from '../components/HowToJoin/HowToJoin.astro'
 import Pricing from '../components/Pricing/Pricing.astro'
-import DevStatement from '../components/DevStatement/DevStatement.astro'
+import Testimonial from '../components/Testimonial/Testimonial.astro'
 import ProjectBoard from '../components/ProjectBoard/ProjectBoard.astro'
 // import BlogSection from '../components/BlogSection/BlogSection.astro'
 import Footer from '../components/Footer/Footer.astro'
@@ -64,7 +64,14 @@ import Footer from '../components/Footer/Footer.astro'
   <Pricing />
 
   <div class="card-sections">
-    <DevStatement />
+    <Testimonial
+      title="They've pushed me out of my comfort zone into new opportunities."
+      desc="I've been working with Frontribe for 2 years and can definitely say that my career is on track since then. If you have the right skills and outperform your colleagues or feel you're wasting time at your current company - you need to give it a shot."
+      author="Karol Jurczyk"
+      company="Digital Surgeons"
+      images={['/images/karol.webp', '/images/karol-small.webp']}
+    />
+
     <ProjectBoard />
     <!-- <BlogSection showButton={true} /> -->
 

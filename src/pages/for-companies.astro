@@ -6,6 +6,7 @@ import WhatWeDo from '../components/WhatWeDo/WhatWeDo.astro'
 import Remote from '../components/Remote/Remote.astro'
 import OrderedList from '../components/OrderedList/OrderedList.astro'
 import Pricing2 from '../components/Pricing2/Pricing2.astro'
+import Testimonial from '../components/Testimonial/Testimonial.astro'
 import Footer from '../components/Footer/Footer.astro'
 ---
 
@@ -51,14 +52,25 @@ import Footer from '../components/Footer/Footer.astro'
   <OrderedList />
   <Pricing2 class="companies" />
 
-  <Footer>
-    <span slot="title">Become <br class="show-mobile">a Partner</span>
-    <p slot="copy" style="max-width: 63rem;">
-      If your company wasn't selected and contacted directly
-      but you find our offer interesting feel free to contact us.
-      <span class="hidden-mobile">We're interested in building a network of reliable partners
-      that could accommodate a higher volume of talented devs.</span>
-    </p>
-  </Footer>
+  <div class="card-sections">
+    <Testimonial
+      title="We would highly recommend them as an experienced and professional team."
+      desc="We began working with Frontribe three years ago and they quickly became an integral part of our vendor network due to their lightning fast efficiency, excellent communication, and best in class development. We have collaborated on a number of projects, ranging from end to end Wordpress and CraftCMS websites, to collaborating as part of a larger team on custom built software."
+      author="Adam Chambers"
+      role="Creative Tech Director"
+      company="Digital Surgeons"
+      images={['/images/adam.webp', '/images/adam-small.webp']}
+    />
+
+    <Footer>
+      <span slot="title">Become <br class="show-mobile">a Partner</span>
+      <p slot="copy" style="max-width: 63rem;">
+        If your company wasn't selected and contacted directly
+        but you find our offer interesting feel free to contact us.
+        <span class="hidden-mobile">We're interested in building a network of reliable partners
+        that could accommodate a higher volume of talented devs.</span>
+      </p>
+    </Footer>
+  </div>
 
 </MainLayout>

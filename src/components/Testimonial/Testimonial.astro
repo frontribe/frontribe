@@ -1,0 +1,37 @@
+---
+import styles from './styles.scss?inline'
+---
+
+<style data-uniq="testimonial" is:inline set:html={styles}></style>
+
+<div class="stage-scrollarea" data-name="testimonial">
+  <section class="testimonial stage" flyout-zoom=".75">
+    <div class="testimonial__container container">
+      <div class="testimonial__image-wrap">
+        <img
+          class="testimonial__image"
+          src={Astro.props.images[0]}
+          srcset={`${Astro.props.images[0]} 515w, ${Astro.props.images[1]} 52w`}
+          sizes="(max-aspect-ratio: 1/1) 52px, 515px"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="testimonial__title">{Astro.props.title}</div>
+      <div class="testimonial__desc">{Astro.props.desc}</div>
+      <div class="testimonial__caption">
+        <div class="testimonial__caption-overlay"></div>
+        {Astro.props.author} <span class="hidden-mobile">@</span><br class="show-mobile"> {Astro.props.company}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="module" hoist>
+  import stageLoader from '../../scripts/stageLoader.js'
+   stageLoader('testimonial', {
+    desktop: () => import('./desktop.js'),
+    mobile: () => ({ create(){}, destroy(){} }),
+  })
+</script>

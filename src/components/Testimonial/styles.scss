@@ -1,4 +1,4 @@
-.dev-statement {
+.testimonial {
   background: var(--black);
 
   &::after {
@@ -77,6 +77,8 @@
   }
 
   @media (max-aspect-ratio: 1/1) {
+    padding-bottom: 12rem;
+
     &__container {
       display: flex;
       flex-wrap: wrap;
