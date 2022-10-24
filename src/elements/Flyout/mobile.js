@@ -7,7 +7,7 @@ export default function (name, e) {
   document.querySelector(`[flyout-name=${name}] [flyout-close]`).addEventListener('click', handleClose, {once: true})
 
   function handleOpen (e) {
-    if (e) e.preventDefault()
+    if (e && e.cancellable) e.preventDefault()
     timeline([
       [`[flyout-name=${name}]`, {transform: 'translateY(-100%)', opacity: .5, pointerEvents: 'all'}, {duration: 0}],
       [`[flyout-name=${name}]`, {transform: 'translateY(0)', opacity: 1}, {duration: .8, easing, at: 0}],
@@ -15,7 +15,7 @@ export default function (name, e) {
   }
 
   function handleClose (e) {
-    e.preventDefault()
+    if (e && e.cancellable) e.preventDefault()
     timeline([
       [`[flyout-name=${name}]`, {transform: 'translateY(-100%)', opacity: .5, pointerEvents: 'none'}, {duration: .8, easing, at: 0}],
     ])
