@@ -87,3 +87,7 @@
     }
   }
 }
+
+html:not(.no-js) .stage.hero-single {
+  opacity: 1;
+}

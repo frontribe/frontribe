@@ -42,6 +42,7 @@ svg {
   position: relative;
 }
 
+
 .stage,
 .stage-scrollarea {
   width: 100%;
@@ -56,6 +57,13 @@ svg {
     .card-sections & {
       min-height: 0;
     }
+  }
+}
+
+@media (min-aspect-ratio: 1/1) {
+  html:not(.no-js) .stage {
+    opacity: 0;
+    transition: opacity .2s ease;
   }
 }
 

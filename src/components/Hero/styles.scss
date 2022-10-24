@@ -90,3 +90,7 @@ $top-spacing: 20rem;
     &__scroll { display: none; }
   }
 }
+
+html:not(.no-js) .stage.hero {
+  opacity: 1;
+}
