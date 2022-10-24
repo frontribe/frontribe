@@ -35,7 +35,18 @@
   }
 
   &__link {
+    position: relative;
     margin-left: 5.6rem;
+
+    &[is-active="true"]:after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      left: 2rem;
+      width: calc(100% - 4rem);
+      height: .1rem;
+      background: currentColor;
+    }
   }
 
   &__burger {
