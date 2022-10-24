@@ -26,6 +26,9 @@ import styles from './styles.scss?inline'
   function listener (e) {
     const name = e.target.getAttribute('flyout-open')
     if (name) {
+      const  c = e.type.includes("click")
+      if (c && (this.wastouched)) return this.wastouched = 0
+      this.wastouched = !c
       if (matchMedia('(max-aspect-ratio: 1/1)').matches) import(`./mobile.js`).then(module => module.default(name, e))
       else  import(`./desktop.js`).then(module => module.default(name, e))
     }
