@@ -3,8 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  transform: translateX(calc(var(--scrollbar-width) * -.5)) translateZ(0);
+  width: 100%;
   color: var(--white);
   font-family: var(--font-tech);
   text-transform: uppercase;

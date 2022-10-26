@@ -55,25 +55,6 @@ import Header from '../components/Header/Header.astro'
     <style is:inline set:html={resetCSS + globalCSS + fontCSS}></style>
   </head>
 <body class={Astro.props.bodyClass}>
-  <script>
-    (function () {
-      const time = 500
-      if (document.referrer && new URL(document.referrer).origin == window.location.origin) document.body.style.opacity = '0'
-      window.addEventListener('pageshow', () => {
-        document.body.setAttribute('style', `transition: opacity ${time / 2}ms ease; opacity: 1;`)
-      })
-      window.addEventListener('click', (e) => {
-        let href = e.target.getAttribute('href')
-        if (href && href.startsWith('/')) {
-          e.preventDefault()
-          href = window.location.origin + href
-          document.body.setAttribute('style', `transition: opacity ${time / 2}ms ease; opacity: 0;`)
-          setTimeout(() => window.location.href = href, time)
-        }
-      })
-    })()
-  </script>
-
   <Sprite.Provider>
 
     <FlyoutMenu />
