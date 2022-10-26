@@ -136,3 +136,7 @@ svg {
 
   .no-js & { background: var(--black) }
 }
+
+a * {
+  pointer-events: none;
+}
