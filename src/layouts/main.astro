@@ -3,6 +3,7 @@ import { Sprite } from 'astro-icon'
 
 import resetCSS from '../styles/reset.scss?inline'
 import globalCSS from '../styles/global.scss?inline'
+import fontCSS from '../styles/font.scss?inline'
 
 import FlyoutMenu from '../components/FlyoutMenu/FlyoutMenu.astro'
 import FlyoutContact from '../components/FlyoutContact/FlyoutContact.astro'
@@ -15,15 +16,6 @@ import Header from '../components/Header/Header.astro'
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>{Astro.props.title || 'Frontribe | Frontend Career Management'}</title>
     <meta name="description" content={Astro.props.description}>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -60,7 +52,7 @@ import Header from '../components/Header/Header.astro'
       import '../scripts/quicklink.js'
     </script>
 
-    <style is:inline set:html={resetCSS + globalCSS}></style>
+    <style is:inline set:html={resetCSS + globalCSS + fontCSS}></style>
   </head>
 <body class={Astro.props.bodyClass}>
   <Sprite.Provider>
