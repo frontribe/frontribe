@@ -5,6 +5,10 @@
   font-family: var(--font-tech);
   text-transform: uppercase;
 
+  .no-js & {
+    background: var(--white);
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -92,6 +96,8 @@
   }
 
   @media (max-aspect-ratio: 1/1) {
+    min-height: 100vh !important;
+    min-height: var(--mobile-doc-height) !important;
     position: relative;
     z-index: 2;
     padding-top: 7.5rem;

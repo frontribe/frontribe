@@ -4,26 +4,39 @@ export default function stageLoader (name, scripts) {
   let mobile
   let timeout
 
-  (new IntersectionObserver(([entry]) => entry.isIntersecting && loadScripts(), { rootMargin: '100px'}))
-  .observe(document.querySelector(`[data-name=${name}]`))
+  ['100px', '-1px'].forEach(rootMargin =>
+    (new IntersectionObserver(([entry]) => entry.isIntersecting && loadScripts(), { rootMargin }))
+    .observe(document.querySelector(`[data-name=${name}]`))
+  )
 
   mediaQuery.addEventListener('change', reset)
   window.addEventListener('resize', () => !mediaQuery.matches && reset())
+  window.addEventListener('focusControl', () => name != 'model' && destroy())
 
   async function loadScripts () {
     if (!window.enableAnims) return
     if (mediaQuery.matches && !mobile) {
-      mobile = await scripts.mobile()
-      mobile.create()
+      try {
+        mobile = true
+        mobile = await scripts.mobile()
+        mobile.create()
+      } catch (e) {
+        mobile = false
+      }
     } else if (!mediaQuery.matches && !desktop){
       document.activeElement.blur()
       document.body.classList.remove('tab-nav')
-      desktop = await scripts.desktop()
-      desktop.create()
+      try {
+        desktop = true
+        desktop = await scripts.desktop()
+        desktop.create()
+      } catch (e) {
+        desktop = false
+      }
     }
   }
 
-  function destroyAll () {
+  function destroy () {
     if (desktop) desktop.destroy()
     if (mobile) mobile.destroy()
     desktop = false
@@ -33,10 +46,9 @@ export default function stageLoader (name, scripts) {
   function reset () {
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => {
-      destroyAll()
+      destroy()
       loadScripts()
     }, 20)
   }
 
-  window.addEventListener('focusControl', destroyAll)
 }

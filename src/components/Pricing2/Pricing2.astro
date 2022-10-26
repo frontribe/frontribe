@@ -27,6 +27,13 @@ import styles from './styles.scss?inline'
 
 <script type="module" hoist>
   import stageLoader from '../../scripts/stageLoader.js'
+
+  if (window.location.search === '?pricing') {
+    const scroll = () => window.scrollTo({top: document.querySelector('#pricing').offsetTop, behavior: 'smooth'})
+    if (matchMedia('(min-aspect-ratio: 1/1)').matches) import('./desktop.js').then(scroll)
+    else scroll()
+  }
+
   stageLoader('pricing2', {
     desktop: () => import('./desktop.js'),
     mobile: () => ({create() {}, destroy() {}}),

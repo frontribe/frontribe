@@ -6,7 +6,6 @@ const parent = document.querySelector('[data-name="testimonial"]')
 const contents = parent.innerHTML
 
 export function create () {
-  console.log(name)
   const caption = document.querySelector('.testimonial__caption')
   const overlay = caption.querySelector('.testimonial__caption-overlay')
 

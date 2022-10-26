@@ -133,4 +133,6 @@ svg {
 
 .card-sections {
   position: relative;
+
+  .no-js & { background: var(--black) }
 }
