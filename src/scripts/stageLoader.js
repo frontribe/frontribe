@@ -1,17 +1,21 @@
 export default function stageLoader (name, scripts) {
   const mediaQuery = matchMedia('(max-aspect-ratio: 1/1)')
+  const el = document.querySelector(`[data-name=${name}]`)
   let desktop
   let mobile
   let timeout
 
   ['100px', '-1px'].forEach(rootMargin =>
     (new IntersectionObserver(([entry]) => entry.isIntersecting && loadScripts(), { rootMargin }))
-    .observe(document.querySelector(`[data-name=${name}]`))
+    .observe(el)
   )
 
   mediaQuery.addEventListener('change', reset)
   window.addEventListener('resize', () => !mediaQuery.matches && reset())
-  window.addEventListener('focusControl', () => name != 'model' && destroy())
+  if (name != 'model') {
+    window.addEventListener('tabnav:on', destroy)
+    window.addEventListener('tabnav:off', loadScripts)
+  }
 
   async function loadScripts () {
     if (!window.enableAnims) return
@@ -25,7 +29,6 @@ export default function stageLoader (name, scripts) {
       }
     } else if (!mediaQuery.matches && !desktop){
       document.activeElement.blur()
-      document.body.classList.remove('tab-nav')
       try {
         desktop = true
         desktop = await scripts.desktop()
@@ -50,5 +53,4 @@ export default function stageLoader (name, scripts) {
       loadScripts()
     }, 20)
   }
-
 }
