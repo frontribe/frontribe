@@ -3,6 +3,9 @@
   padding-bottom: 17rem;
   overflow: hidden;
   background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__header {
     display: flex;
@@ -127,6 +130,7 @@
   [src*="launch-hartford"] { width: 21.6rem;}
 
   @media (max-aspect-ratio: 1/1) {
+    display: block;
     padding-top: 10rem;
     padding-bottom: 12rem;
 
