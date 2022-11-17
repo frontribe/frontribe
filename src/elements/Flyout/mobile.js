@@ -9,8 +9,9 @@ export default function (name, e) {
   function handleOpen (e) {
     if (e && e.cancellable) e.preventDefault()
     timeline([
-      [`[flyout-name=${name}]`, {transform: 'translateY(-100%)', opacity: .5, pointerEvents: 'all'}, {duration: 0}],
+      [`[flyout-name=${name}]`, {transform: 'translateY(-100%)', opacity: .5, pointerEvents: 'none'}, {duration: 0}],
       [`[flyout-name=${name}]`, {transform: 'translateY(0)', opacity: 1}, {duration: .8, easing, at: 0}],
+      [`[flyout-name=${name}]`, {pointerEvents: 'all'}, {duration: 0, at: 0.8}],
     ])
   }
 
