@@ -1,4 +1,3 @@
-import compress from 'astro-compress'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
 export default {
@@ -25,5 +24,5 @@ export default {
     })],
   },
 
-  integrations: [compress()],
+  integrations: [],
 };
